@@ -30,6 +30,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="100"/>
                                         <state key="normal" title="-"/>
                                         <connections>
+                                            <action selector="didTapDecrementButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Xaa-Sr-Lgr"/>
                                             <action selector="didTapMinusButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="78G-27-n2y"/>
                                         </connections>
                                     </button>
