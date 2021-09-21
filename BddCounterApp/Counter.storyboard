@@ -15,9 +15,50 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lux-C5-SLr">
+                                <rect key="frame" x="176.5" y="393.5" width="61" height="119.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="LkN-L0-yMi">
+                                <rect key="frame" x="50" y="563" width="314" height="132"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6T-mJ-pnj">
+                                        <rect key="frame" x="0.0" y="0.0" width="157" height="132"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                        <state key="normal" title="-"/>
+                                        <connections>
+                                            <action selector="didTapMinusButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="78G-27-n2y"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y8y-Yc-Ep2">
+                                        <rect key="frame" x="157" y="0.0" width="157" height="132"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                        <state key="normal" title="+"/>
+                                        <connections>
+                                            <action selector="didTapPlusButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="O6C-QG-E8F"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="LkN-L0-yMi" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="50" id="7XC-mR-Owx"/>
+                            <constraint firstItem="LkN-L0-yMi" firstAttribute="top" secondItem="lux-C5-SLr" secondAttribute="bottom" constant="50" id="BcY-48-wws"/>
+                            <constraint firstItem="lux-C5-SLr" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="cUk-uL-Xbg"/>
+                            <constraint firstItem="LkN-L0-yMi" firstAttribute="centerX" secondItem="lux-C5-SLr" secondAttribute="centerX" id="ikU-ii-ZB0"/>
+                            <constraint firstItem="lux-C5-SLr" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="w6I-RE-o7t"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="countLabel" destination="lux-C5-SLr" id="2Zs-8g-rzs"/>
+                        <outlet property="minusButton" destination="j6T-mJ-pnj" id="xLb-Le-nCa"/>
+                        <outlet property="plusButton" destination="y8y-Yc-Ep2" id="EhT-48-QPu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

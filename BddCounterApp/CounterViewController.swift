@@ -7,23 +7,23 @@
 
 import UIKit
 
-class CounterViewController: UIViewController {
+final class CounterViewController: UIViewController {
 
+    @IBOutlet private weak var countLabel: UILabel!
+    @IBOutlet private weak var plusButton: UIButton!
+    @IBOutlet private weak var minusButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+    }
+
+    @IBAction private func didTapPlusButton(_ sender: Any) {
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction private func didTapMinusButton(_ sender: Any) {
+        
     }
-    */
-
+    
 }
