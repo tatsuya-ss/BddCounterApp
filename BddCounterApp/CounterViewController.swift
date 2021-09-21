@@ -36,7 +36,8 @@ final class CounterViewController: UIViewController {
     }
     
     @IBAction private func didTapDecrementButton(_ sender: Any) {
-        
+        count -= 1
+        updateView()
     }
     
 }
