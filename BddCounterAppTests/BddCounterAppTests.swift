@@ -8,8 +8,41 @@
 import XCTest
 import Quick
 import Nimble
-
 @testable import BddCounterApp
+
+final class CounterViewControllerSpec: QuickSpec {
+    
+    override func spec() {
+        
+        var vc: CounterViewController!
+        
+        beforeEach { ///確かitの前に毎回呼ばれるやつでテスト対象をセットアップする
+            vc = CounterViewController.make()
+            let window = UIWindow(frame: UIScreen.main.bounds)
+            window.rootViewController = vc
+            window.makeKeyAndVisible()
+        }
+        
+        ///初期表示のテスト
+        describe("初期表示") {
+            it("カウントが「0」であること") {
+                expect(vc.countLabel.text).to(equal("0"))
+            }
+        }
+        
+        ///「＋」ボタンをタップした時のテスト
+        describe("「＋」ボタンのタップ") {
+            context("現在地が「0」") {
+                it("カウンタが「１」に増えること") {
+                    vc.incrementButton.sendActions(for: .touchUpInside)
+                    expect(vc.countLabel.text).to(equal("1"))
+                }
+            }
+        }
+        
+    }
+
+}
 
 final class CounterViewControllerTests: XCTestCase {
     
