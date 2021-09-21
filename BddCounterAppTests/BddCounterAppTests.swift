@@ -40,6 +40,19 @@ final class CounterViewControllerSpec: QuickSpec {
             }
         }
         
+        describe("「-」ボタンをタップ") {
+            context("現在地が「1」") {
+                beforeEach { ///事前に現在値を「１」にしておく処理
+                    vc.incrementButton.sendActions(for: .touchUpInside)
+                }
+                
+                it("カウンタが「0」に減ること") {
+                    vc.decrementButton.sendActions(for: .touchUpInside)
+                    expect(vc.countLabel.text).to(equal("0"))
+                }
+            }
+        }
+        
     }
 
 }
