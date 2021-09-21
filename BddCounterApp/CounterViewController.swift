@@ -9,9 +9,11 @@ import UIKit
 
 final class CounterViewController: UIViewController {
     
-    @IBOutlet private weak var countLabel: UILabel!
-    @IBOutlet private weak var incrementButton: UIButton!
-    @IBOutlet private weak var decrementButton: UIButton!
+    @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var incrementButton: UIButton!
+    @IBOutlet weak var decrementButton: UIButton!
+    
+    var count = 0
     
     static func make() -> CounterViewController {
         let stotyboard = UIStoryboard(name: "Counter",
@@ -21,11 +23,12 @@ final class CounterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        countLabel.text = "\(count)"
     }
     
     @IBAction private func didTapIncrementButton(_ sender: Any) {
-        
+        count += 1
+        countLabel.text = "\(count)"
     }
     
     @IBAction private func didTapDecrementButton(_ sender: Any) {
