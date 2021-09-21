@@ -23,12 +23,16 @@ final class CounterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateView()
+    }
+    
+    private func updateView() {
         countLabel.text = "\(count)"
     }
     
     @IBAction private func didTapIncrementButton(_ sender: Any) {
         count += 1
-        countLabel.text = "\(count)"
+        updateView()
     }
     
     @IBAction private func didTapDecrementButton(_ sender: Any) {
