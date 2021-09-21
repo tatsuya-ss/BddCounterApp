@@ -11,7 +11,7 @@
         <!--Counter View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="CounterViewController" customModule="BddCounterApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CounterViewController" id="Y6W-OH-hqX" customClass="CounterViewController" customModule="BddCounterApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,7 +38,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="100"/>
                                         <state key="normal" title="+"/>
                                         <connections>
-                                            <action selector="didTapPlusButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="O6C-QG-E8F"/>
+                                            <action selector="didTapIncrementButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="O6C-QG-E8F"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -56,8 +56,8 @@
                     </view>
                     <connections>
                         <outlet property="countLabel" destination="lux-C5-SLr" id="2Zs-8g-rzs"/>
-                        <outlet property="minusButton" destination="j6T-mJ-pnj" id="xLb-Le-nCa"/>
-                        <outlet property="plusButton" destination="y8y-Yc-Ep2" id="EhT-48-QPu"/>
+                        <outlet property="decrementButton" destination="j6T-mJ-pnj" id="xLb-Le-nCa"/>
+                        <outlet property="incrementButton" destination="y8y-Yc-Ep2" id="EhT-48-QPu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
