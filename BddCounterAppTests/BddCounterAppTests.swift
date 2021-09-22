@@ -55,30 +55,30 @@ final class CounterSpec: QuickSpec {
             }
         }
         
-        describe("#isNotLowerLimit") {
+        describe("#isLowerLimit") {
             context("現在地が「0」") {
-                it("falseを返すこと") {
-                    expect(Counter().isNotLowerLimit).to(beFalse())
+                it("trueを返すこと") {
+                    expect(Counter().isLowerLimit).to(beTrue())
                 }
             }
             
-            context("現在地が「1」") {
-                it("trueを返すこと") {
-                    expect(Counter(count: 1).isNotLowerLimit).to(beTrue())
+            context("現在地が「1」以上") {
+                it("falseを返すこと") {
+                    expect(Counter(count: 1).isLowerLimit).to(beFalse())
                 }
             }
         }
         
-        describe("#isNotUpperLimit") {
-            context("現在値が「9」") {
+        describe("#isUpperLimit") {
+            context("現在値が「10」") {
                 it("trueを返すこと") {
-                    expect(Counter(count: 9).isNotUpperLimit).to(beTrue())
+                    expect(Counter(count: 10).isUpperLimit).to(beTrue())
                 }
             }
             
-            context("現在値が「10」") {
+            context("現在値が「10」未満") {
                 it("falseを返すこと") {
-                    expect(Counter(count: 10).isNotUpperLimit).to(beFalse())
+                    expect(Counter(count: 9).isUpperLimit).to(beFalse())
                 }
             }
         }
