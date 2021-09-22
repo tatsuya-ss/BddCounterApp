@@ -10,6 +10,12 @@ import Quick
 import Nimble
 @testable import BddCounterApp
 
+private extension UIButton {
+    func tap() {
+        self.sendActions(for: .touchUpInside)
+    }
+}
+
 final class CounterViewControllerSpec: QuickSpec {
     
     override func spec() {
@@ -34,7 +40,7 @@ final class CounterViewControllerSpec: QuickSpec {
         describe("「＋」ボタンのタップ") {
             context("現在地が「0」") {
                 it("カウンタが「１」に増えること") {
-                    vc.incrementButton.sendActions(for: .touchUpInside)
+                    vc.incrementButton.tap()
                     expect(vc.countLabel.text).to(equal("1"))
                 }
             }
@@ -43,11 +49,11 @@ final class CounterViewControllerSpec: QuickSpec {
         describe("「-」ボタンをタップ") {
             context("現在地が「1」") {
                 beforeEach { ///事前に現在値を「１」にしておく処理
-                    vc.incrementButton.sendActions(for: .touchUpInside)
+                    vc.incrementButton.tap()
                 }
                 
                 it("カウンタが「0」に減ること") {
-                    vc.decrementButton.sendActions(for: .touchUpInside)
+                    vc.decrementButton.tap()
                     expect(vc.countLabel.text).to(equal("0"))
                 }
             }
