@@ -14,8 +14,8 @@ final class Counter {
         self.count = count
     }
     
-    var isNotLowerLimit: Bool { return count > 0 }
-    var isNotUpperLimit: Bool { return count < 10 }
+    var isLowerLimit: Bool { return count == 0 }
+    var isUpperLimit: Bool { return count == 10 }
     
     func increment() {
         count += 1
@@ -48,8 +48,8 @@ final class CounterViewController: UIViewController {
     private func updateView() {
         countLabel.text = "\(counter.count)"
         
-        decrementButton.isEnabled = counter.isNotLowerLimit
-        incrementButton.isEnabled = counter.isNotUpperLimit
+        decrementButton.isEnabled = !counter.isLowerLimit
+        incrementButton.isEnabled = !counter.isUpperLimit
     }
     
     @IBAction private func didTapIncrementButton(_ sender: Any) {
