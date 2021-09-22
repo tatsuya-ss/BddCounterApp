@@ -19,11 +19,18 @@ final class CounterStorageMock: CounterStorage {
     }
 }
 
+final class CounterStorageDefaults: CounterStorage {
+    func save(_ count: Int) {
+        UserDefaults.standard.set(count, forKey: "count")
+    }
+}
+
 final class Counter {
     private(set) var count: Int
-    private let counterStorage: CounterStorage!
-    
-    init(count: Int = 0, counterStorage: CounterStorage? = nil) {
+    private let counterStorage: CounterStorage
+
+    init(count: Int = 0,
+         counterStorage: CounterStorage = CounterStorageDefaults()) {
         self.count = count
         self.counterStorage = counterStorage
     }
@@ -33,12 +40,12 @@ final class Counter {
     
     func increment() {
         count += 1
-        counterStorage?.save(count)
+        counterStorage.save(count)
     }
     
     func decrement() {
         count -= 1
-        counterStorage?.save(count)
+        counterStorage.save(count)
     }
 }
 
