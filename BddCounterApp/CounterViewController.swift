@@ -7,13 +7,32 @@
 
 import UIKit
 
+final class Counter {
+    private(set) var count: Int
+    
+    init(count: Int = 0) {
+        self.count = count
+    }
+    
+    var isNotLowerLimit: Bool { return count > 0 }
+    var isNotUpperLimit: Bool { return count < 10 }
+    
+    func increment() {
+        count += 1
+    }
+    
+    func decrement() {
+        count -= 1
+    }
+}
+
 final class CounterViewController: UIViewController {
     
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var incrementButton: UIButton!
     @IBOutlet weak var decrementButton: UIButton!
     
-    var count = 0
+    var counter = Counter()
     
     static func make() -> CounterViewController {
         let stotyboard = UIStoryboard(name: "Counter",
@@ -27,19 +46,19 @@ final class CounterViewController: UIViewController {
     }
     
     private func updateView() {
-        countLabel.text = "\(count)"
+        countLabel.text = "\(counter.count)"
         
-        decrementButton.isEnabled = count > 0
-        incrementButton.isEnabled = count < 10
+        decrementButton.isEnabled = counter.isNotLowerLimit
+        incrementButton.isEnabled = counter.isNotUpperLimit
     }
     
     @IBAction private func didTapIncrementButton(_ sender: Any) {
-        count += 1
+        counter.increment()
         updateView()
     }
     
     @IBAction private func didTapDecrementButton(_ sender: Any) {
-        count -= 1
+        counter.decrement()
         updateView()
     }
     
