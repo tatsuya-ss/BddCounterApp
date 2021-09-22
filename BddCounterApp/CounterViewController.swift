@@ -28,6 +28,9 @@ final class CounterViewController: UIViewController {
     
     private func updateView() {
         countLabel.text = "\(count)"
+        
+        decrementButton.isEnabled = count > 0
+        incrementButton.isEnabled = count < 10
     }
     
     @IBAction private func didTapIncrementButton(_ sender: Any) {
