@@ -171,8 +171,33 @@ final class CounterViewControllerSpec: QuickSpec {
             }
         }
         
+        describe("現在値の保存") {
+            context("現在値が2") {
+                
+                beforeEach {
+                    vc.incrementButton.tap(repeat: 2)
+                    UserDefaults.standard.set(0, forKey: "count")
+                }
+                
+                context("「+」ボタンをタップ") {
+                    it("現在値「3」がUserDefaultsに保存されていること") {
+                        vc.incrementButton.tap()
+                        let actual = UserDefaults.standard.integer(forKey: "count")
+                        expect(actual).to(equal(3))
+                    }
+                }
+                
+                context("「-」ボタンをタップ") {
+                    it("現在値「1」がUserDefaultsに保存されていること") {
+                        vc.decrementButton.tap()
+                        let actual = UserDefaults.standard.integer(forKey: "count")
+                        expect(actual).to(equal(1))
+                    }
+                }
+                
+            }
+        }
     }
-
 }
 
 final class CounterViewControllerTests: XCTestCase {
