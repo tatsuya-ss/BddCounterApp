@@ -11,8 +11,10 @@ import Nimble
 @testable import BddCounterApp
 
 private extension UIButton {
-    func tap() {
-        self.sendActions(for: .touchUpInside)
+    func tap(repeat: Int = 1) {
+        for _ in 1...`repeat` {
+            self.sendActions(for: .touchUpInside)
+        }
     }
 }
 
@@ -60,9 +62,7 @@ final class CounterViewControllerSpec: QuickSpec {
             
             context("上限値に達した場合") {
                 beforeEach {
-                    for _ in 1...10 {
-                        vc.incrementButton.tap()
-                    }
+                    vc.incrementButton.tap(repeat: 10)
                 }
                 
                 it("上限値なので「+」ボタンが非活性になること") {
@@ -91,9 +91,7 @@ final class CounterViewControllerSpec: QuickSpec {
             
             context("現在地が「10」(上限値)") {
                 beforeEach {
-                    for _ in 1...10 {
-                        vc.incrementButton.tap()
-                    }
+                    vc.incrementButton.tap(repeat: 10)
                     vc.decrementButton.tap()
                 }
                 it("カウンタが「9」に減ること") {
